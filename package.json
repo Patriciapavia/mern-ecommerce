@@ -24,7 +24,8 @@
   "homepage": "https://github.com/Patriciapavia/mern-ecommerce#readme",
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "prettier": "2.1.2"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
