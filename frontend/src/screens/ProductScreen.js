@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Image, ListGroup, Card, Button, ListGroupItem, Form } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Message';
 import { listProductDetails } from '../actions/productActions';
-const ProductScreen = ({ history }) => {
-	let { id } = useParams();
+const ProductScreen = ({ match, history }) => {
+	
 
-	const [ qty, setQty ] = useState(0);
+	const [ qty, setQty ] = useState(1);
 
 	const dispatch = useDispatch();
 
@@ -19,13 +19,13 @@ const ProductScreen = ({ history }) => {
 
 	useEffect(
 		() => {
-			dispatch(listProductDetails(id));
+			dispatch(listProductDetails(match.params.id));
 		},
-		[ dispatch, id ]
+		[ dispatch, match ]
 	);
 
 	const addToCartHandler = () => {
-		history.push(`/cart/${id}?qty${qty}`);
+		history.push(`/cart/${match.params.id}?qty=${qty}`);
 	};
 
 	return (
@@ -85,10 +85,10 @@ const ProductScreen = ({ history }) => {
 													value={qty}
 													onChange={(e) => setQty(e.target.value)}
 												>
-													{[ ...Array(product.countInStock).keys() ].map((x) => (
+													{[ ...Array(product.countInStock).keys()].map((x) => (
 														<option key={x + 1} value={x + 1}>
-															{' '}
-															{x + 1}{' '}
+														
+															{x + 1}
 														</option>
 													))}
 												</Form.Control>
