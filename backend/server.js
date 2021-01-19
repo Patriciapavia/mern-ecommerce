@@ -1,17 +1,13 @@
-const express  = require('express')
-const dotenv = require('dotenv')
-const colors = require('colors')
-const connectDB = require('../backend/config/db')
-const productRoutes = require('./routes/productRoutes')
-const notFound = require('./middleware/errorMiddleware')
-const errorHandler = require('./middleware/errorMiddleware')
+import express from "express";
+import dotenv from "dotenv";
+import colors from "colors";
+import connectDB from "../backend/config/db.js";
+import productRoutes from "./routes/productRoutes.js";
+import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 
+dotenv.config();
 
-
-
-dotenv.config()
-
-connectDB()
+connectDB();
 
 const app = express();
 
@@ -19,11 +15,16 @@ app.get("/", (req, res) => {
   res.send("Api is running...");
 });
 
-app.use('/api/products', productRoutes)
+app.use("/api/products", productRoutes);
 
-app.use(notFound)
+app.use(notFound);
 
-app.use(errorHandler)
+app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000
-app.listen(PORT, console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold));
+const PORT = process.env.PORT || 5000;
+app.listen(
+  PORT,
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  )
+);
