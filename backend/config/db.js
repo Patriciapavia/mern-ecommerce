@@ -1,9 +1,11 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv'
+dotenv.config()
 
 const connectDb = async () => {
   try {
     const conn = await mongoose.connect(
-      "mongodb+srv://<patricia>:<7341>@mernconnector.qlwfc.mongodb.net/test",
+      "mongodb+srv://ppavia:Qwertyuiop@postmelon.5ew93.mongodb.net/postmelon?retryWrites=true&w=majority",
       {
         useFindAndModify: true,
         useNewUrlParser: true,

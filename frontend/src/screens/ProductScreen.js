@@ -6,8 +6,8 @@ import Rating from '../components/Rating';
 import Message from '../components/Message';
 import Loader from '../components/Message';
 import { listProductDetails } from '../actions/productActions';
+
 const ProductScreen = ({ match, history }) => {
-	
 
 	const [ qty, setQty ] = useState(1);
 
@@ -29,7 +29,7 @@ const ProductScreen = ({ match, history }) => {
 	};
 
 	return (
-		<div>
+		<React.Fragment>
 			<Link className='btn btn-dark my-3 ' to='/'>
 				Go Back
 			</Link>
@@ -111,7 +111,7 @@ const ProductScreen = ({ match, history }) => {
 					</Col>
 				</Row>
 			)}
-		</div>
+		</React.Fragment>
 	);
 };
 
