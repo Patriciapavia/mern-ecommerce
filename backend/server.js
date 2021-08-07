@@ -1,11 +1,12 @@
-import express from "express";
 import dotenv from "dotenv";
+dotenv.config();
+import express from "express";
 import colors from "colors";
 import connectDB from "../backend/config/db.js";
 import productRoutes from "./routes/productRoutes.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import userRoutes  from './routes/userRoutes.js'
-dotenv.config();
+
 
 connectDB();
 
