@@ -10,6 +10,7 @@ import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ShippingScreen from "./screens/ShippingScreen";
+import PaymentScreen from "./screens/PaymentScreen";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <h1>Welcome to Great Deal</h1>
             <Route path='/' component={HomeScreen} exact />
             <Route path='/login' component={LoginScreen} />
+            <Route path='/payment' component={PaymentScreen} />
             <Route path='/register' component={RegisterScreen} />
             <Route path='/shipping' component={ShippingScreen} />
             <Route path='/profile' component={ProfileScreen} />
